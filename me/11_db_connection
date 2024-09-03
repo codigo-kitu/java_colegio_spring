@@ -1,0 +1,7 @@
+mariadb -h localhost -P 3307 -u root -p
+
+use 2015_colegio_relaciones
+
+show tables;
+
+select * from materia;

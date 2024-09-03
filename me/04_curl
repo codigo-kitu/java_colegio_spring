@@ -1,0 +1,41 @@
+--- TODOS ---
+
+curl -X POST -H 'Content-Type: application/json' 'http://localhost:3000/api/colegio/estructura/materia_api/index' -d '{
+					"pagination":{
+									"skip": 0,
+									"limit": 10
+								}
+				}' ;
+
+--- SELECCIONAR ---
+
+curl -X POST -H 'Content-Type: application/json' 'http://localhost:3000/api/colegio/estructura/materia_api/seleccionar' -d '{
+					"id":86
+				}' ;
+				
+--- NUEVO ---
+
+curl -X POST -H 'Content-Type: application/json' 'http://localhost:3000/api/colegio/estructura/materia_api/nuevo' -d '{
+					"materia":{
+									"codigo": "c5",
+									"nombre": "n5",
+									"activo": 1
+								}
+				}' ;
+			
+--- ACTUALIZAR ---
+
+curl -X PUT -H 'Content-Type: application/json' 'http://localhost:3000/api/colegio/estructura/materia_api/actualizar' -d '{
+					"materia":{
+									"id": 81,
+									"codigo": "c99",
+									"nombre": "n99",
+									"activo": 0
+								}
+				}' ;
+					
+--- ELIMINAR ---
+
+curl -X DELETE -H 'Content-Type: application/json' 'http://localhost:3000/api/colegio/estructura/materia_api/eliminar' -d '{
+					"id":86
+				}' ;

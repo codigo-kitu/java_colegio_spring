@@ -1,0 +1,74 @@
+server:
+  port: 3000
+
+spring:
+
+  application:
+
+    name: colegio_relaciones
+
+# LOCALHOST
+  datasource:
+
+    # MariaDB
+    #url: jdbc:mysql://localhost:3306/2015_colegio_relaciones
+    #username: root
+    #password: root
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    
+    # SQLite
+    #url: jdbc:sqlite:memory:colegio_db?cache=shared 
+    url: jdbc:sqlite:colegio_db.sqlite 
+    username: root
+    password: root
+    driver-class-name: org.sqlite.JDBC    
+
+# DOCKER
+#   url: jdbc:mysql://${MYSQL_HOST:localhost}:3307/2015_colegio_relaciones
+# LOCAL
+#   url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/2015_colegio_relaciones
+#   url: jdbc:mysql://${MYSQL_HOST:me_colegio_mariadb_c01}:3306/2015_colegio_relaciones
+
+  jpa:
+
+    database: default
+    
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+
+    show-sql: true
+
+    hibernate:
+
+      ddl-auto: none   # create-drop, create-only, create, none
+
+    properties:
+
+      hibernate:
+
+        format_sql: true
+
+# CONSOLE APPLICATION ONLY, NO WEB APP
+# main:
+#    web-application-type: NONE
+
+  devtools:
+    restart:      
+      enabled: 'true'      
+      poll-interval: '2s'      
+      quiet-period: '1s'      
+      additional-paths:      
+      - src/main/java/
+      
+    livereload:            
+      enabled: 'true'
+
+  thymeleaf:        
+    cache: 'false'        
+    prefix: file:src/main/resources/templates/
+
+  web:    
+    resources:      
+      static-locations: file:src/main/resources/static/, classpath:/static/  
+
+      cache:        
+        period: 0
